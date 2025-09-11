@@ -1,9 +1,9 @@
 FROM python:3.12-slim-bookworm
 ENV UV_NO_CACHE=true
 ENV UV_COMPILE_BYTECODE=1
-ENV MYSQL_USER
-ENV MYSQL_PASSWORD
-ENV MYSQL_DATABASE
+ENV MYSQL_USER user
+ENV MYSQL_PASSWORD password
+ENV MYSQL_DATABASE database
 ENV PORT
 RUN python3 -m pip install --upgrade pip setuptools uv
 RUN uv pip install --no-cache mlflow pymysql --system
