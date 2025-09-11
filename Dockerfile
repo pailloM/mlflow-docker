@@ -4,7 +4,7 @@ ENV UV_COMPILE_BYTECODE=1
 ENV MYSQL_USER user
 ENV MYSQL_PASSWORD password
 ENV MYSQL_DATABASE database
-ENV PORT
+ENV PORT 5051
 RUN python3 -m pip install --upgrade pip setuptools uv
 RUN uv pip install --no-cache mlflow pymysql --system
 CMD mlflow db upgrade mysql+pymysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mariadb-mlflow/${MYSQL_DATABASE}
