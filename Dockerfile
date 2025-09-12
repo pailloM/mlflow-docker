@@ -9,6 +9,8 @@ ENV PORT 5051
 VOLUME /artifacts
 RUN python3 -m pip install --upgrade pip setuptools uv
 RUN uv pip install --no-cache mlflow pymysql --system
-HEALTHCHECK --interval=1m --timeout=10s --start-period=60s CMD curl -f http://localhost:${PORT} || exit 1
+
+# HEALTHCHECK --interval=1m --timeout=10s --start-period=60s CMD curl -f http://localhost:${PORT} || exit 1
+# need to install curl first
 CMD mlflow db upgrade mysql+pymysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mariadb-mlflow/${MYSQL_DATABASE}
 ENTRYPOINT mlflow server --backend-store-uri mysql+pymysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mariadb-mlflow/${MYSQL_DATABASE} --default-artifact-root /artifacts --host 0.0.0.0 --port ${PORT}
