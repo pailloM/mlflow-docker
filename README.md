@@ -3,7 +3,7 @@ Docker container for mlflow
 
 docker-compose exemple:
 
-'''
+```
 
 services:
 
@@ -56,4 +56,4 @@ services:
       - "/etc/timezone:/etc/timezone:ro"
       - "path_to_artifacts:/data" # Optional
 
-'''
+```
