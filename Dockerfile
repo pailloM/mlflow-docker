@@ -14,5 +14,4 @@ RUN python3 -m pip install --upgrade pip setuptools uv
 RUN uv pip install --no-cache mlflow pymysql --system
 COPY ./start.sh /opt/mlflow/scripts/
 HEALTHCHECK --interval=1m --timeout=10s --start-period=60s CMD curl -f http://localhost:${PORT} || exit 1
-# CMD mlflow db upgrade mysql+pymysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mariadb-mlflow/${MYSQL_DATABASE}
 ENTRYPOINT ["/bin/bash", "/opt/mlflow/scripts/start.sh"]
