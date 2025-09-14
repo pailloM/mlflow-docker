@@ -49,11 +49,11 @@ jobs:
         # You may pin to the exact commit or the version.
         # uses: cssnr/docker-tags-action@4eb1881e11711d084cfa31189107d6f39e591f00
         uses: cssnr/docker-tags-action@v1.0.3
-        with:
+        # with:
           # Image Names to Tag
           #images: # optional, default is ghcr.io/${{ github.repository }}
           # Extra Tags to Add
-          tags: latest # optional
+          # tags: latest # optional
           # Extra Labels to Add
           #labels: # optional
           # Output Seperator
