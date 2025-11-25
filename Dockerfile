@@ -6,6 +6,7 @@ ENV MYSQL_PASSWORD password
 ENV MYSQL_DATABASE database
 ENV ARTIFACTS_PATH /data
 ENV PORT 5051
+ENV MLFLOW_SERVER_ALLOWED_HOSTS *
 VOLUME /artifacts
 RUN apt update && apt install -y curl && apt clean
 RUN rm -rf /var/lib/apt/lists/*
