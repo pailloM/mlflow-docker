@@ -1,7 +1,7 @@
 # mlflow-docker
 Docker container for mlflow
 
-docker-compose exemple:
+docker-compose example:
 
 ```
 
