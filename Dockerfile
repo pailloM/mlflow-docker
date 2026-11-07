@@ -11,9 +11,8 @@ ENV MLFLOW_SERVER_CORS_ALLOWED_ORIGINS 127.0.0.1
 ENV MLFLOW_SERVER_X_FRAME_OPTIONS SAMEORIGIN
 ENV MLFLOW_SERVER_DISABLE_SECURITY_MIDDLEWARE false
 VOLUME /artifacts
-RUN apt update && apt install -y curl && apt clean
-RUN rm -rf /var/lib/apt/lists/*
-RUN apt clean && apt autoremove
+RUN apt update && apt install -y curl && apt clean && \
+    rm -rf /var/lib/apt/lists/* && apt clean && apt autoremove
 RUN python3 -m pip install --upgrade pip setuptools uv
 RUN uv pip install --no-cache mlflow pymysql --system
 COPY ./start.sh /opt/mlflow/scripts/
